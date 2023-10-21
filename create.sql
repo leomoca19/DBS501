@@ -5,7 +5,15 @@ CREATE TABLE Locations (
 );
 
 -- Insert sample data into Locations
-INSERT INTO Locations (Location_id, City) VALUES (1100, 'Venice');  
+INSERT INTO Locations (Location_id, City) VALUES (1100, 'Venice'); 
+INSERT INTO Locations (Location_id, City) VALUES (1200, 'Toronto');
+INSERT INTO Locations (Location_id, City) VALUES (1300, 'Seattle');
+INSERT INTO Locations (Location_id, City) VALUES (1400, 'Belgrade');
+--DELETE FROM Departments WHERE Location_id > 1000;
+--DELETE FROM Locations WHERE Location_id > 1000 ;
+--select * from locations;
+--select * from departments;
+
 
 -- Create the Employees table
 CREATE TABLE Employees (
