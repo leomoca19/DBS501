@@ -5,6 +5,7 @@ DECLARE
     v_manager_id NUMBER;
     v_location_id NUMBER;
     v_city_name VARCHAR2(50);
+    
 BEGIN
     -- Prompt for a valid city name without any department
     DBMS_OUTPUT.PUT('Please provide the valid city without department: ');
@@ -29,6 +30,18 @@ BEGIN
 
     IF v_manager_id = 1 THEN
         DBMS_OUTPUT.PUT_LINE('This city already contains a department: ' || v_city_name);
+            
+        -- Display department details
+        DBMS_OUTPUT.PUT_LINE('DEPARTMENT_ID|DEPARTMENT_NAME|MANAGER_ID|LOCATION_ID');
+        FOR dept IN (
+            SELECT Department_id, Department_name, Manager_id, Location_id
+            FROM Departments
+            WHERE Location_id = v_location_id
+        )
+        LOOP
+            DBMS_OUTPUT.PUT_LINE(' ' || dept.Department_id || ' ' || dept.Department_name || ' ' || dept.Manager_id || ' ' || dept.Location_id);
+        END LOOP;
+            
     -- Check if the city contains more than one department
     ELSIF v_manager_id > 1 THEN
         DBMS_OUTPUT.PUT_LINE('This city has MORE THAN ONE department: ' || v_city_name);
